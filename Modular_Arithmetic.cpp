@@ -10,7 +10,7 @@ pair<T, T> ExtEuc(T a, T b) { // ax + by = gcd(a, b); returns {x, y}
 
 template<long long MOD_>
 struct Modular {
-	static const long long M0D = MODt_;
+	static const long long M0D = MOD_;
 	long long value;
 	Modular() { value = 0; }
 	Modular(long long _v) { value = (-M0D <= _v && _v < M0D ? _v : _v % M0D); if(value < 0) value += M0D; }
