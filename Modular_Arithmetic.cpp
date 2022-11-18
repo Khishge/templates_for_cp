@@ -1,6 +1,8 @@
 template<typename T>
 pair<T, T> ExtEuc(T a, T b) { // ax + by = gcd(a, b); returns {x, y}
-	if(!b) return make_pair(1, 0);
+	if(!b) {
+		return make_pair(1, 0);
+	}
 	T u = a / b;
 	pair<T, T> o = ExtEuc(b, a - u * b);
 	return make_pair(o.second, o.first - u * o.second);
@@ -8,7 +10,7 @@ pair<T, T> ExtEuc(T a, T b) { // ax + by = gcd(a, b); returns {x, y}
 
 template<long long MOD_>
 struct Modular {
-	static const long long M0D = MOD_;
+	static const long long M0D = MODt_;
 	long long value;
 	Modular() { value = 0; }
 	Modular(long long _v) { value = (-M0D <= _v && _v < M0D ? _v : _v % M0D); if(value < 0) value += M0D; }
@@ -48,8 +50,9 @@ vector<mint> fact{1};
 vector<mint> inv_fact{1};
 
 mint nCk(int n, int k) { // N Choose K
-	if(n < 0 || k > n)
+	if(n < 0 || k > n) {
 		return 0;
+	}
 	while((int)fact.size() <= n) {
 		fact.push_back(fact.back() * (int)fact.size());
 		inv_fact.push_back(inverse(fact.back()));
@@ -60,9 +63,11 @@ mint nCk(int n, int k) { // N Choose K
 void preFI(int sz) {
 	fact.resize(sz + 1);
 	inv_fact.resize(sz + 1);
-	for(int i = 1; i <= sz; ++i)
+	for(int i = 1; i <= sz; ++i) {
 		fact[i] = fact[i - 1] * i;
+	}
 	inv_fact[sz] = inverse(fact[sz]);
-	for(int i = sz - 1; i > 0; --i)
+	for(int i = sz - 1; i > 0; --i) {
 		inv_fact[i] = (i + 1) * inv_fact[i + 1];
+	}
 }
