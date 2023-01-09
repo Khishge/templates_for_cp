@@ -4,7 +4,6 @@ struct Sparse_Table {
 		return 31 - __builtin_clz(x);
 	}
 	T f(T x, T y) { // implement !!!
-		return min(x, y);
 	}
 	int N, K;
 	vector<vector<T>> st;
