@@ -11,7 +11,7 @@ void Dijkstra(int st, vector<long long>& D, vector<int>& P) {
 	while(!s.empty()) {
 		int cur = *begin(s);
 		s.erase(begin(s));
-		for( u : adj[cur]) {
+		for(auto& u : adj[cur]) {
 			int to = u.first;
 			long long len = u.second;
 			if(D[cur] + len < D[to]) {
