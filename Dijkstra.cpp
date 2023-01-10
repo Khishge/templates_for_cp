@@ -9,7 +9,7 @@ void Dijkstra(int st, vector<long long>& D, vector<int>& P) { // here Dis type
 	pq.push({0, st});
 	D[st] = 0;
 	while(!pq.empty()) {
-		long long D_to_cur = pq.top().first;
+		long long D_to_cur = pq.top().first; // here
 		int cur = pq.top().second;
 		pq.pop();
 		if(D_to_cur != D[cur]) {
