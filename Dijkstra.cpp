@@ -1,10 +1,10 @@
-const long long INF = 0x3f3f3f3f3f3f3f3f;
+const long long INF = 0x3f3f3f3f3f3f3f3f; // here
 
-void Dijkstra(int st, vector<long long>& D, vector<int>& P) {
+void Dijkstra(int st, vector<long long>& D, vector<int>& P) { // here Dis type
 	int n = (int) size(adj);
 	D.resize(n, INF); // make sure to declare larger #INF# for long long
 	P.resize(n, -1);
-	using tp = pair<long long, int>;
+	using tp = pair<long long, int>; // here
 	priority_queue<tp, vector<tp>, greater<tp>> pq;
 	pq.push({0, st});
 	D[st] = 0;
@@ -17,7 +17,7 @@ void Dijkstra(int st, vector<long long>& D, vector<int>& P) {
 		}
 		for(auto& u : adj[cur]) {
 			int to = u.first;
-			long long len = u.second;
+			long long len = u.second; // here
 			if(D[cur] + len < D[to]) {
 				D[to] = D[cur] + len;
 				P[to] = cur;
