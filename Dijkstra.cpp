@@ -4,7 +4,8 @@ void Dijkstra(int st, vector<long long>& D, vector<int>& P) {
 	int n = (int) size(adj);
 	D.resize(n, INF); // make sure to declare larger #INF# for long long
 	P.resize(n, -1);
-	priority_queue<pair<long long, int>, vector<pair<long long, int>>, greater<pair<long long, int>>> pq;
+	using tp = pair<long long, int>;
+	priority_queue<tp, vector<tp>, greater<tp>> pq;
 	pq.push({0, st});
 	D[st] = 0;
 	while(!pq.empty()) {
